@@ -68,12 +68,35 @@ void xyFunction(bool &result){
     std::cout << "Your answer is :" << '\t';
     std::cin >> number1 >> number2;
     int multiplyResult = number1 * number2;
-    if(multiplyResult == multiply){
+    int sumResult = number1 + number2;
+    if(multiplyResult == multiply && sumResult == sum){
         std::cout << "correct answer" << std::endl;
         result = true;
     }
     else{
         std::cout << "wrong answer" << "correct answer was : " << a << '\t' << b << '\t' << '\t' << std::endl;
+        result = false;
+    }
+}
+
+void xyzFunction(bool &result){
+    int a = rand()%10 , b = rand()%10 , c = rand()%10;
+    int multiply = a * b * c;
+    int sum = a + b + c;
+    std::cout << "Guess 3 numbers whose :" << '\n';
+    std::cout << "Multiplication product is:" << multiply << '\t';
+    std::cout << "and sum is:" << sum << '\t';
+    int number1, number2, number3;
+    std::cout << "Your answer is :" << '\t';
+    std::cin >> number1 >> number2 >> number3;
+    int multiplyResult = number1 * number2 * number3;
+    int sumResult = number1 + number2 + number3;
+    if(multiplyResult == multiply && sumResult == sum){
+        std::cout << "correct answer" << std::endl;
+        result = true;
+    }
+    else{
+        std::cout << "wrong answer" << "correct answer was : " << a << '\t' << b << '\t' << c << '\t' << std::endl;
         result = false;
     }
 }
@@ -140,6 +163,18 @@ int main(){
                     } 
                 }
                 if(level == 5){
+                    bool result;
+                    xyzFunction(result);
+                    if(result) {
+                        ++level;
+                        continue;
+                    } 
+                    else {
+                        --level;
+                        continue;
+                    } 
+                }
+                if(level == 6){
                     break;
                 }
             }
