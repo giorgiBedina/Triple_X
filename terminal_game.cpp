@@ -109,8 +109,8 @@ int main(){
     while(std::cin >> answer){
         if(answer == "yes" || answer == "Yes"){
             std::cout << "Try to guess 3 correct numbers for this problem" << std::endl;
-            int level = 1, maxLevel = 10;
-            while(level > 0 && level < maxLevel){
+            int level = 1, maxLevel = 5;
+            while(level >= 1 && level <= maxLevel){
                 std::cout << "level" << '\t' << level << std::endl;
 
                 if(level == 1){
@@ -166,6 +166,7 @@ int main(){
                     bool result;
                     xyzFunction(result);
                     if(result) {
+                        std::cout << "you won" << std::endl;
                         ++level;
                         continue;
                     } 
@@ -173,9 +174,6 @@ int main(){
                         --level;
                         continue;
                     } 
-                }
-                if(level == 6){
-                    break;
                 }
             }
             break;
