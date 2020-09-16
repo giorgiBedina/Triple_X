@@ -15,7 +15,7 @@ void addNumbers(bool &result){
         result = true;
     }
     else{
-        std::cout << "wrong answer" << std::endl;
+        std::cout << "wrong answer" << '\t' << "correct answer was : " << sum << std::endl;
         result = false;
     }
 }
@@ -32,7 +32,7 @@ void multiplyNumbers(bool &result){
         result = true;
     }
     else{
-        std::cout << "wrong answer" << std::endl;
+        std::cout << "wrong answer" << "correct answer was : " << multiply << std::endl;
         result = false;
     }
 }
@@ -52,7 +52,28 @@ void factorial(bool &result){
         result = true;
     }
     else{
-        std::cout << "wrong answer" << std::endl;
+        std::cout << "wrong answer" << "correct answer was : " << factorial << std::endl;
+        result = false;
+    }
+}
+
+void xyFunction(bool &result){
+    int a = rand()%10 , b = rand()%10;
+    int multiply = a * b;
+    int sum = a + b;
+    std::cout << "Guess 2 numbers whose :" << '\n';
+    std::cout << "Multiplication product is:" << multiply << '\t';
+    std::cout << "and sum is:" << sum << '\t';
+    int number1, number2;
+    std::cout << "Your answer is :" << '\t';
+    std::cin >> number1 >> number2;
+    int multiplyResult = number1 * number2;
+    if(multiplyResult == multiply){
+        std::cout << "correct answer" << std::endl;
+        result = true;
+    }
+    else{
+        std::cout << "wrong answer" << "correct answer was : " << a << '\t' << b << '\t' << '\t' << std::endl;
         result = false;
     }
 }
@@ -107,6 +128,18 @@ int main(){
                     } 
                 }
                 if(level == 4){
+                    bool result;
+                    xyFunction(result);
+                    if(result) {
+                        ++level;
+                        continue;
+                    } 
+                    else {
+                        --level;
+                        continue;
+                    } 
+                }
+                if(level == 5){
                     break;
                 }
             }
